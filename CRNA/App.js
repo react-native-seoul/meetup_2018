@@ -1,13 +1,56 @@
+import Expo from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class App extends React.Component {
+  facebookLogin = async () => {
+    console.log('onPress');
+    const result: any = await Expo.Facebook.logInWithReadPermissionsAsync(
+      '1868642810112992',
+      { permissions: [ 'email', 'public_profile' ] },
+    );
+  
+    if (result.type !== 'success') {
+      return false;
+    }
+  
+    console.log('token: ' + result.token);
+
+    const resultToken: any = await fetch(
+      `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${result.token}`);
+    const user = JSON.parse(resultToken._bodyInit);
+    console.log(user);
+  }
+
+  recordAudio = async () => {
+    try {
+      const result = await Expo.Google.logInAsync({
+        androidClientId: YOUR_CLIENT_ID_HERE,
+        iosClientId: YOUR_CLIENT_ID_HERE,
+        scopes: ['profile', 'email'],
+      });
+
+      console.log(result);
+
+      if (result.type === 'success') {
+        return result.accessToken;
+      } else {
+        return {cancelled: true};
+      }
+    } catch(e) {
+      console.log(e);
+      return {error: true};
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Button
+          // onPress={this.facebookLogin}
+          onPress={this.recordAudio}
+          title='Click Me!!!'
+        />
       </View>
     );
   }
