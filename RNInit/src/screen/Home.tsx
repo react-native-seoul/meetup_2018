@@ -9,32 +9,42 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Button,
   View
 } from 'react-native';
+import appStore from '../stores/appStore';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+export default class App extends Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cnt: 0,
+    };
+  }
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
+  public render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
+        <Button
+          title='click'
+          onPress={this.onClick}
+        />
         <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
+          count: {this.state.cnt}{'\n'}
+          appStore.cnt: {appStore.cnt}
         </Text>
       </View>
     );
+  }
+
+  private onClick = () => {
+    this.setState({
+      cnt: this.state.cnt + 1,
+    });
+    appStore.cnt = appStore.cnt + 3;
   }
 }
 

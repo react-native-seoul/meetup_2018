@@ -4,7 +4,7 @@ import NavigationService from './NavigationService';
 import HomeScreen from '../screen/Home';
 
 class RootNavigator extends React.Component {
-  render() {
+  public render() {
     const RootStackNavigator = createStackNavigator({
       Home: {
         screen: HomeScreen,
@@ -21,10 +21,8 @@ class RootNavigator extends React.Component {
           this.getActiveRouteName(currentState);
         }}
       />
-    )
+    );
   }
 }
 
-export default createStackNavigator({
-  
-});
+export default RootNavigator;
