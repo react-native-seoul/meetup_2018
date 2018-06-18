@@ -16,13 +16,50 @@
   "devDependencies": {
     "babel-jest": "23.0.1",
     "babel-preset-react-native": "4.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "jest": "23.1.0",
+    "react-dom": "^16.4.1",
     "react-native-typescript-transformer": "^1.2.10",
-    "react-test-renderer": "16.3.1",
+    "react-test-renderer": "^16.4.1",
+    "ts-jest": "^22.4.6",
     "tslib": "^1.9.2",
     "typescript": "^2.9.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)"
+    ],
+    "setupFiles": [
+      "./test/jestSetup.ts"
+    ],
+    "globals": {
+      "window": {},
+      "ts-jest": {
+        "useBabelrc": true,
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "ios.ts",
+      "ios.tsx",
+      "android.ts",
+      "android.tsx"
+    ],
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ]
   }
 }
