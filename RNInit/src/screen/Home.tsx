@@ -13,7 +13,9 @@ import {
   View
 } from 'react-native';
 import appStore from '../stores/appStore';
+import { observer } from 'mobx-react';
 
+@observer
 export default class App extends Component<any, any> {
   constructor(props) {
     super(props);
@@ -22,7 +24,18 @@ export default class App extends Component<any, any> {
     };
   }
 
+  public componentDidMount() {
+    setTimeout(() => {
+      appStore.loading = true;
+    }, 3000);
+  }
+
   public render() {
+    if (!appStore.loading) {
+      return (
+        <Text>Loading</Text>
+      );
+    }
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -33,7 +46,7 @@ export default class App extends Component<any, any> {
           onPress={this.onClick}
         />
         <Text style={styles.instructions}>
-          count: {this.state.cnt}{'\n'}
+          {/* count: {this.state.cnt}{'\n'} */}
           appStore.cnt: {appStore.cnt}
         </Text>
       </View>
@@ -41,9 +54,9 @@ export default class App extends Component<any, any> {
   }
 
   private onClick = () => {
-    this.setState({
-      cnt: this.state.cnt + 1,
-    });
+    // this.setState({
+    //   cnt: this.state.cnt + 1,
+    // });
     appStore.cnt = appStore.cnt + 3;
   }
 }
