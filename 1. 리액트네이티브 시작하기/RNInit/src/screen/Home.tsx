@@ -13,7 +13,7 @@ import {
   View
 } from 'react-native';
 import appStore from '../stores/appStore';
-import STRINGS from '../../STRINGS';
+import { getString } from '../../STRINGS';
 import { observer } from 'mobx-react';
 
 @observer
