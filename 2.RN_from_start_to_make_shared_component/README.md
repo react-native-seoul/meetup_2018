@@ -1,6 +1,6 @@
 # React Native 프로젝트 시작부터 공유 컴포넌트 만들기까지
 
-## [2018.07.04 Meetup 발표자료 링크](https://docs.google.com/presentation/d/1qPCxECU-ALumyJLqaPy8h7NljlWD8J52LN27G5tj6zk/edit?usp=sharing)
+### [2018.07.04 Meetup 발표자료 링크](https://docs.google.com/presentation/d/1qPCxECU-ALumyJLqaPy8h7NljlWD8J52LN27G5tj6zk/edit?usp=sharing)
 
 ## Installation of `sample_AnnyeongRN`
 ```
