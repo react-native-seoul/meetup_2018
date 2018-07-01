@@ -13,6 +13,7 @@ import {
   View
 } from 'react-native';
 import appStore from '../stores/appStore';
+import { getString } from '../../STRINGS';
 import { observer } from 'mobx-react';
 
 @observer
@@ -39,7 +40,7 @@ export default class App extends Component<any, any> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          {getString('HELLO')}
         </Text>
         <Button
           title='click'
