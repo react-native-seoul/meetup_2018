@@ -32,7 +32,7 @@ const styles: any = StyleSheet.create({
     alignItems: 'center',
   },
   titleTxt: {
-    marginTop: 100,
+    marginTop: 60,
     color: 'white',
     fontSize: 28,
   },
@@ -41,7 +41,7 @@ const styles: any = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 4,
     borderWidth: 2,
-    width: 200,
+    width: 240,
     height: 52,
     borderColor: 'white',
     marginTop: 30,
@@ -86,7 +86,7 @@ class Page extends Component<Props, State> {
           style={[
             styles.btn,
             {
-              marginTop: 80,
+              marginTop: 50,
             },
           ]}
         >Switch Navigator</Button>
@@ -95,8 +95,16 @@ class Page extends Component<Props, State> {
         >Stack Navigator</Button>
         <Button
           style={styles.btn}
+          onPress={() => NavigationService.navigate('MaterialTopTabNavigator')}
+        >MaterialTopTabNavigator</Button>
+        <Button
+          style={styles.btn}
           onPress={() => NavigationService.navigate('BottomTabNavigator')}
         >BottomTab Navigator</Button>
+        <Button
+          style={styles.btn}
+          onPress={() => NavigationService.navigate('MaterialBottomTabNavigator')}
+        >MaterialBottomTabNavigator</Button>
         <Button
           style={styles.btn}
         >Drawer Navigator</Button>

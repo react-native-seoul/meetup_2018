@@ -8,6 +8,8 @@ import NavigationService from './NavigationService';
 import IntroScreen from '../screen/Intro';
 import SwitchNavigator from '../navigation/SwtichNavigator';
 import BottomTabNavigator from '../navigation/BottomTabNavigator';
+import MaterialTopTabNavigator from '../navigation/MaterialTopTabNavigator';
+import MaterialBottomTabNavigator from '../navigation/MaterialBottomTabNavigator';
 import NotFoundScreen from '../screen/NotFound';
 
 @observer
@@ -27,6 +29,12 @@ class RootNavigator extends React.Component {
       },
       BottomTabNavigator: {
         screen: BottomTabNavigator,
+      },
+      MaterialTopTabNavigator: {
+        screen: MaterialTopTabNavigator,
+      },
+      MaterialBottomTabNavigator: {
+        screen: MaterialBottomTabNavigator,
       },
       NotFound: {
         screen: NotFoundScreen,
