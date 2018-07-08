@@ -32,9 +32,8 @@ const styles: any = StyleSheet.create({
     alignItems: 'center',
   },
   titleTxt: {
-    marginTop: 60,
-    color: 'white',
-    fontSize: 28,
+    color: 'black',
+    fontSize: 20,
   },
   btn: {
     backgroundColor: 'transparent',
@@ -60,6 +59,10 @@ type State = {
 
 @inject('store') @observer
 class Page extends Component<Props, State> {
+  static navigationOptions = {
+    headerTitle: <Text style={styles.titleTxt}>React Navigation V2</Text>,
+  };
+
   timer: any;
 
   state = {
@@ -80,7 +83,6 @@ class Page extends Component<Props, State> {
           backgroundColor: colors.background,
         }}
       >
-        <Text style={styles.titleTxt}>React Navigation V2</Text>
         <Button
           onPress={() => NavigationService.navigate('SwitchNavigator')}
           style={[
@@ -92,6 +94,7 @@ class Page extends Component<Props, State> {
         >Switch Navigator</Button>
         <Button
           style={styles.btn}
+          onPress={() => NavigationService.navigate('StackNavigator')}
         >Stack Navigator</Button>
         <Button
           style={styles.btn}
@@ -107,6 +110,7 @@ class Page extends Component<Props, State> {
         >MaterialBottomTabNavigator</Button>
         <Button
           style={styles.btn}
+          onPress={() => NavigationService.navigate('DrawerNavigator', { isDrawer: true })}
         >Drawer Navigator</Button>
       </ScrollView>
     );

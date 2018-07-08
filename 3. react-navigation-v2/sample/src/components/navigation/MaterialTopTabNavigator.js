@@ -9,7 +9,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { ratio, colors, statusBarHeight } from '../../utils/Styles';
+import { ratio, colors } from '../../utils/Styles';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 
 import Screen1 from '../screen/Screen1';
@@ -46,15 +46,9 @@ const MyNavigator = createMaterialTopTabNavigator(
       labelStyle: {
         fontSize: 14 * ratio,
         color: 'tomato',
-        // marginTop: Platform.OS === 'ios' ? 8 * ratio : 6 * ratio,
-        // fontFamily: 'NotoSans-Bold',
       },
       tabStyle: {
-        paddingTop: statusBarHeight,
-        height: Platform.select({
-          ios: (44 + statusBarHeight) * ratio,
-          android: (60 + statusBarHeight) * ratio,
-        }),
+        height: 48,
         alignItems: 'center',
         justifyContent: 'center',
       },
@@ -66,4 +60,18 @@ const MyNavigator = createMaterialTopTabNavigator(
   },
 );
 
-export default MyNavigator;
+type Props = {};
+type State = {};
+
+class Page extends React.Component<Props, State> {
+  static router = MyNavigator.router;
+  render() {
+    return (
+      <MyNavigator
+        navigation={this.props.navigation}
+      />
+    );
+  }
+}
+
+export default Page;

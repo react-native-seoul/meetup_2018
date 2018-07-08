@@ -48,4 +48,5 @@ const MyNavigator = createMaterialBottomTabNavigator({
     },
   }),
 });
+
 export default MyNavigator;

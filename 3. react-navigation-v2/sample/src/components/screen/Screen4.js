@@ -18,6 +18,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  txt: {
+    fontSize: 20,
+    marginBottom: 20,
+    color: 'purple',
+  },
+  txtDrawer: {
+    color: 'tomato',
+    fontSize: 18,
+  },
 });
 
 type Props = {
@@ -31,7 +40,15 @@ class Screen extends Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Screen 4</Text>
+        <Text style={styles.txt}>Screen 4</Text>
+        {
+          this.props.navigation.getParam('isDrawer')
+            ? <TouchableOpacity
+              onPress={() => this.props.navigation.openDrawer()}
+            ><Text style={styles.txtDrawer}>Open Drawer</Text>
+            </TouchableOpacity>
+            : null
+        }
       </View>
     );
   }
