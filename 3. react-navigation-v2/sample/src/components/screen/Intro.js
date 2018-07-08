@@ -74,7 +74,12 @@ class Page extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        style={{
+          backgroundColor: colors.background,
+        }}
+      >
         <Text style={styles.titleTxt}>React Navigation V2</Text>
         <Button
           onPress={() => NavigationService.navigate('SwitchNavigator')}
@@ -90,11 +95,12 @@ class Page extends Component<Props, State> {
         >Stack Navigator</Button>
         <Button
           style={styles.btn}
-        >Tab Navigator</Button>
+          onPress={() => NavigationService.navigate('BottomTabNavigator')}
+        >BottomTab Navigator</Button>
         <Button
           style={styles.btn}
         >Drawer Navigator</Button>
-      </View>
+      </ScrollView>
     );
   }
 }

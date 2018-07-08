@@ -7,6 +7,7 @@ import appStore from '../../stores/appStore';
 import NavigationService from './NavigationService';
 import IntroScreen from '../screen/Intro';
 import SwitchNavigator from '../navigation/SwtichNavigator';
+import BottomTabNavigator from '../navigation/BottomTabNavigator';
 import NotFoundScreen from '../screen/NotFound';
 
 @observer
@@ -23,6 +24,9 @@ class RootNavigator extends React.Component {
       },
       SwitchNavigator: {
         screen: SwitchNavigator,
+      },
+      BottomTabNavigator: {
+        screen: BottomTabNavigator,
       },
       NotFound: {
         screen: NotFoundScreen,
