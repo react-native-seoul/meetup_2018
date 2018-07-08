@@ -26,7 +26,6 @@ import NavigationService from '../navigation/NavigationService';
 
 const styles: any = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.background,
     flexDirection: 'column',
     alignItems: 'center',
@@ -43,7 +42,7 @@ const styles: any = StyleSheet.create({
     width: 240,
     height: 52,
     borderColor: 'white',
-    marginTop: 30,
+    marginBottom: 25,
 
     alignItems: 'center',
     justifyContent: 'center',
@@ -112,6 +111,10 @@ class Page extends Component<Props, State> {
           style={styles.btn}
           onPress={() => NavigationService.navigate('DrawerNavigator', { isDrawer: true })}
         >Drawer Navigator</Button>
+        <Button
+          style={styles.btn}
+          onPress={() => NavigationService.navigate('CustomNavigator')}
+        >Custom Navigator</Button>
       </ScrollView>
     );
   }

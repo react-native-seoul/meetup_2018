@@ -12,6 +12,7 @@ import BottomTabNavigator from '../navigation/BottomTabNavigator';
 import MaterialTopTabNavigator from '../navigation/MaterialTopTabNavigator';
 import MaterialBottomTabNavigator from '../navigation/MaterialBottomTabNavigator';
 import DrawerNavigator from '../navigation/DrawerNavigator';
+import CustomNavigator from '../navigation/CustomNavigator';
 import NotFoundScreen from '../screen/NotFound';
 
 @observer
@@ -43,6 +44,9 @@ class RootNavigator extends React.Component {
       },
       DrawerNavigator: {
         screen: DrawerNavigator,
+      },
+      CustomNavigator: {
+        screen: CustomNavigator,
       },
       NotFound: {
         screen: NotFoundScreen,
