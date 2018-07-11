@@ -10,21 +10,21 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={ appStore }>
-        <View style={styles.container}>
-          <RootStackNavigator />
-        </View>
+        {/* <View style={styles.container}> */}
+        <RootStackNavigator />
+        {/* </View> */}
       </Provider>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight(false) : 0, // false to get height of android too.
-    flexDirection: 'column',
-    backgroundColor: 'transparent',
-  },
+  // container: {
+  //   flex: 1,
+  //   paddingTop: Platform.OS === 'ios' ? getStatusBarHeight(false) : 0, // false to get height of android too.
+  //   flexDirection: 'column',
+  //   backgroundColor: 'transparent',
+  // },
 });
 
 export default App;

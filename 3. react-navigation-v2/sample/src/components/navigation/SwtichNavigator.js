@@ -1,4 +1,4 @@
-import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
+import { createSwitchNavigator } from 'react-navigation';
 
 import Switch1 from '../screen/Switch1';
 import Switch2 from '../screen/Switch2';

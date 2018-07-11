@@ -26,25 +26,23 @@ import NavigationService from '../navigation/NavigationService';
 
 const styles: any = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.background,
     flexDirection: 'column',
     alignItems: 'center',
   },
   titleTxt: {
-    marginTop: 100,
-    color: 'white',
-    fontSize: 28,
+    color: 'black',
+    fontSize: 20,
   },
   btn: {
     backgroundColor: 'transparent',
     alignSelf: 'center',
     borderRadius: 4,
     borderWidth: 2,
-    width: 200,
+    width: 240,
     height: 52,
     borderColor: 'white',
-    marginTop: 30,
+    marginBottom: 25,
 
     alignItems: 'center',
     justifyContent: 'center',
@@ -60,6 +58,10 @@ type State = {
 
 @inject('store') @observer
 class Page extends Component<Props, State> {
+  static navigationOptions = {
+    headerTitle: <Text style={styles.titleTxt}>React Navigation V2</Text>,
+  };
+
   timer: any;
 
   state = {
@@ -74,27 +76,46 @@ class Page extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleTxt}>React Navigation V2</Text>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        style={{
+          backgroundColor: colors.background,
+        }}
+      >
         <Button
           onPress={() => NavigationService.navigate('SwitchNavigator')}
           style={[
             styles.btn,
             {
-              marginTop: 80,
+              marginTop: 50,
             },
           ]}
         >Switch Navigator</Button>
         <Button
           style={styles.btn}
+          onPress={() => NavigationService.navigate('StackNavigator')}
         >Stack Navigator</Button>
         <Button
           style={styles.btn}
-        >Tab Navigator</Button>
+          onPress={() => NavigationService.navigate('MaterialTopTabNavigator')}
+        >MaterialTopTabNavigator</Button>
         <Button
           style={styles.btn}
+          onPress={() => NavigationService.navigate('BottomTabNavigator')}
+        >BottomTab Navigator</Button>
+        <Button
+          style={styles.btn}
+          onPress={() => NavigationService.navigate('MaterialBottomTabNavigator')}
+        >MaterialBottomTabNavigator</Button>
+        <Button
+          style={styles.btn}
+          onPress={() => NavigationService.navigate('DrawerNavigator', { isDrawer: true })}
         >Drawer Navigator</Button>
-      </View>
+        <Button
+          style={styles.btn}
+          onPress={() => NavigationService.navigate('CustomNavigator')}
+        >Custom Navigator</Button>
+      </ScrollView>
     );
   }
 }
