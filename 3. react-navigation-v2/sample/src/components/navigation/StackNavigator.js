@@ -1,15 +1,19 @@
 import { createStackNavigator } from 'react-navigation';
 
-import Switch1 from '../screen/Switch1';
-import Switch2 from '../screen/Switch2';
+import Screen1 from '../screen/Screen1';
+import Screen2 from '../screen/Screen2';
+import Screen3 from '../screen/Screen3';
+import Screen4 from '../screen/Screen4';
 
 export default createStackNavigator(
   {
-    Switch1,
-    Switch2,
+    Screen1,
+    Screen2,
+    Screen3,
+    Screen4,
   },
   {
-    initialRouteName: 'Switch1',
+    initialRouteName: 'Screen1',
     headerMode: 'none',
   },
 );

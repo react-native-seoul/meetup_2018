@@ -29,6 +29,12 @@ const BottomTabNavigator = createBottomTabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
+        if (!focused) {
+          return <Image style={{
+            width: 16,
+            height: 16,
+          }} source={IC_MASK}/>;
+        }
         return <Image style={{
           width: 24,
           height: 24,

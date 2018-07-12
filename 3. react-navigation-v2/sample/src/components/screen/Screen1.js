@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   View,
+  Button,
 } from 'react-native';
 
 import { ratio, colors } from '../../utils/Styles';
@@ -40,6 +41,10 @@ class Screen extends Component<Props, State> {
     return (
       <View style={styles.container}>
         <Text style={styles.txt}>Screen 1</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('Screen2')}
+          title='Navigate'
+        />
         {
           this.props.navigation.getParam('isDrawer')
             ? <TouchableOpacity
