@@ -17,6 +17,7 @@
     "build": "babel src/ -d lib/"
   },
   "dependencies": {
+    "apsl-react-native-button": "^3.1.1",
     "jsc-android": "^224109.0.0",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",

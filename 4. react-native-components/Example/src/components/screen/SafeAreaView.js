@@ -1,24 +1,15 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  Platform,
-  StatusBar,
   StyleSheet,
-  TouchableHighlight,
   TouchableOpacity,
   Image,
-  ScrollView,
   Text,
   View,
-  FlatList,
-  InteractionManager,
+  SafeAreaView,
 } from 'react-native';
-import { inject } from 'mobx-react/native';
 
-import { ratio } from '../../utils/Styles';
-import {
-  IC_MASK,
-} from '../../utils/Icons';
+import { ratio, colors } from '../../utils/Styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,19 +21,32 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-}
 
+};
 type State = {
+
 }
 
-class Page extends Component<Props, State> {
+/**
+ * only for ios
+ */
+
+class Screen extends Component<Props, State> {
+  static navigationOptions = {
+    title: 'SafeAreaView',
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Not Found</Text>
+        <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+          <View style={{flex: 1}}>
+            <Text>Hello World!</Text>
+          </View>
+        </SafeAreaView>
       </View>
     );
   }
 }
 
-export default Page;
+export default Screen;

@@ -1,70 +1,41 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  Platform,
-  StatusBar,
-  StyleSheet,
-  TouchableHighlight,
-  TouchableOpacity,
-  Image,
   ScrollView,
-  Text,
   View,
-  FlatList,
-  InteractionManager,
+  StyleSheet,
+  Text,
 } from 'react-native';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { inject } from 'mobx-react/native';
 
+import Button from '../shared/Button';
 import { ratio, colors } from '../../utils/Styles';
 import { IC_MASK } from '../../utils/Icons';
 import User from '../../models/User';
 import { getString } from '../../../STRINGS';
-import Button from '../shared/Button';
 
 const styles: any = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 24,
     backgroundColor: colors.background,
     flexDirection: 'column',
     alignItems: 'center',
   },
-  titleTxt: {
-    marginTop: 100,
-    color: 'white',
-    fontSize: 28,
-  },
-  txtLogin: {
-    fontSize: 14,
-    color: 'white',
-  },
-  imgBtn: {
-    width: 24,
-    height: 24,
-    position: 'absolute',
-    left: 16,
-  },
-  viewUser: {
-    marginTop: 80,
-    alignItems: 'center',
-  },
-  txtUser: {
+  txtHeader: {
+    color: colors.dusk,
     fontSize: 16,
-    color: '#eee',
-    lineHeight: 48,
+    marginBottom: 16,
+    fontWeight: 'bold',
   },
-  btnBottomWrapper: {
-    position: 'absolute',
-    bottom: 40,
-  },
-  btnLogin: {
-    backgroundColor: 'transparent',
+  btn: {
+    backgroundColor: colors.dodgerBlue,
     alignSelf: 'center',
-    borderRadius: 4,
-    borderWidth: 2,
-    width: 320,
-    height: 52,
+    borderRadius: 8,
+    width: 280,
+    height: 48,
     borderColor: 'white',
 
     alignItems: 'center',
@@ -93,39 +64,72 @@ class Page extends Component<Props, State> {
     }
   }
 
-  render() {
+  renderItem(txt: string, reverseBack?: boolean) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleTxt}>Example</Text>
-        <View style={styles.viewUser}>
-          <Text style={styles.txtUser}>{this.props.store.user.displayName}</Text>
-          <Text style={styles.txtUser}>{this.props.store.user.age}</Text>
-          <Text style={styles.txtUser}>{this.props.store.user.job}</Text>
-        </View>
-        <View style={styles.btnBottomWrapper}>
-          <Button
-            isLoading={this.state.isLoggingIn}
-            onPress={this.onLogin}
-            style={styles.btnLogin}
-            textStyle={styles.txtLogin}
-            imgLeftSrc={IC_MASK}
-            imgLeftStyle={styles.imgBtn}
-          >{getString('LOGIN')}</Button>
-        </View>
-      </View>
+      <Button
+        onPress={() => this.props.navigation.navigate(txt)}
+        style={[
+          styles.btn,
+          reverseBack
+            ? {
+              borderWidth: 1, borderColor: colors.dodgerBlue, backgroundColor: 'white', marginBottom: 24,
+            }
+            : { marginBottom: 24 },
+        ]}
+        textStyle={{
+          fontSize: 15,
+          color: reverseBack ? colors.dodgerBlue : 'white',
+        }}
+      >{txt}</Button>
     );
   }
 
-  onLogin = () => {
-    this.props.store.user = new User();
-    this.setState({ isLoggingIn: true }, () => {
-      this.timer = setTimeout(() => {
-        this.props.store.user.displayName = 'dooboolab';
-        this.props.store.user.age = 30;
-        this.props.store.user.job = 'developer';
-        this.setState({ isLoggingIn: false });
-      }, 1000);
-    });
+  render() {
+    return (
+      <ScrollView
+        style={{
+          backgroundColor: colors.background,
+          height: '100%',
+          width: '100%',
+        }}
+      >
+        <View style={styles.container}>
+          {/* Button */}
+          {this.renderItem('Button', true)}
+          {/* View */}
+          <Text style={styles.txtHeader}>View</Text>
+          {this.renderItem('ActivityIndicator')}
+          {this.renderItem('View')}
+          {this.renderItem('Text')}
+          {this.renderItem('Picker')}
+          {this.renderItem('Image')}
+          {this.renderItem('Modal')}
+          {this.renderItem('SafeAreaView')}
+          {this.renderItem('StatusBar')}
+          {/* Input */}
+          <Text style={styles.txtHeader}>Input</Text>
+          {this.renderItem('TextInput', true)}
+          {this.renderItem('RefreshControl', true)}
+          {this.renderItem('Slider', true)}
+          {this.renderItem('Switch', true)}
+          {/* Touch */}
+          <Text style={styles.txtHeader}>Touch</Text>
+          {this.renderItem('TouchableHighlight', true)}
+          {this.renderItem('TouchableNativeFeedBack', true)}
+          {this.renderItem('TouchableOpacity', true)}
+          {this.renderItem('TouchableWithoutFeedBack', true)}
+          {/* Keyboard */}
+          <Text style={styles.txtHeader}>Keyboard</Text>
+          {this.renderItem('InputAccessoryView')}
+          {this.renderItem('KeyboardAvoidingView')}
+          {/* List */}
+          <Text style={styles.txtHeader}>List</Text>
+          {this.renderItem('ScrollView', true)}
+          {this.renderItem('FlatList', true)}
+          {this.renderItem('SectionList', true)}
+        </View>
+      </ScrollView>
+    );
   }
 }
 
