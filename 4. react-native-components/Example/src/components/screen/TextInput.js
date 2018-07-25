@@ -7,6 +7,7 @@ import {
   Text,
   View,
   TextInput,
+  Platform,
 } from 'react-native';
 
 import { ratio, colors } from '../../utils/Styles';
@@ -51,8 +52,21 @@ class Screen extends Component<Props, State> {
             minWidth: 100,
             paddingHorizontal: 5,
           }}
-          onChangeText={(text) => this.txt = text}
-          value={this.txt}
+          onChangeText={(text) => {
+            if (Platform.OS === 'ios') {
+              this.txt = text;
+              return;
+            }
+            this.setState({
+              text,
+            });
+          }}
+          value={
+            Platform.select({
+              ios: this.txt,
+              android: this.state.text,
+            })
+          }
         />
       </View>
     );
