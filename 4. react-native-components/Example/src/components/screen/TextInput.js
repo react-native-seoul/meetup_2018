@@ -33,6 +33,8 @@ class Screen extends Component<Props, State> {
     title: 'TextInput',
   };
 
+  txt = '';
+
   state = {
     text: '',
   };
@@ -49,8 +51,8 @@ class Screen extends Component<Props, State> {
             minWidth: 100,
             paddingHorizontal: 5,
           }}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(text) => this.txt = text}
+          value={this.txt}
         />
       </View>
     );

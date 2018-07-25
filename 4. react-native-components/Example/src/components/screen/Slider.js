@@ -6,6 +6,8 @@ import {
   Image,
   Text,
   View,
+  Slider,
+  Alert,
 } from 'react-native';
 
 import { ratio, colors } from '../../utils/Styles';
@@ -16,6 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
@@ -34,7 +37,15 @@ class Screen extends Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Screen</Text>
+        <Slider
+          style={{ width: 300 }}
+          step={1}
+          minimumValue={18}
+          maximumValue={71}
+          value={3}
+          onValueChange={(val) => this.setState({ age: val })}
+          onSlidingComplete={(val) => Alert.alert('sliding completed.')}
+        />
       </View>
     );
   }

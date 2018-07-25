@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   View,
+  Switch,
 } from 'react-native';
 
 import { ratio, colors } from '../../utils/Styles';
@@ -13,9 +14,10 @@ import { ratio, colors } from '../../utils/Styles';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
@@ -31,10 +33,24 @@ class Screen extends Component<Props, State> {
     title: 'Switch',
   };
 
+  state = {
+    val: false,
+  };
+
+  onValChange = (val) => {
+    console.log('onValChange');
+    this.setState({
+      val,
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Screen</Text>
+        <Switch
+          onValueChange={this.onValChange}
+          value={this.state.val}
+        />
       </View>
     );
   }
