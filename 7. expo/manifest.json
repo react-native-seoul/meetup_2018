@@ -1,0 +1,69 @@
+Running application "main" with appParams: 
+{
+	"initialProps":
+	{
+		"exp":
+		{
+			"initialUri":"exp://192.168.0.6:19000",
+			"manifest":
+			{
+				"iconUrl":"http://192.168.0.6:19001/assets/./assets/icon.png",
+				"isVerified":true,
+				"hostUri":"192.168.0.6:19000",
+				"version":"1.0.0",
+				"slug":"react-navigation-final",
+				"splash":
+				{
+					"resizeMode":"contain",
+					"backgroundColor":"#ffffff",
+					"image":"./assets/splash.png",
+					"imageUrl":"http://192.168.0.6:19001/assets/./assets/splash.png"
+				},
+				"logUrl":"http://192.168.0.6:19000/logs",
+				"privacy":"public",
+				"assetBundlePatterns":["**/*"],
+				"primaryColor":"#023C69",
+				"orientation":"portrait",
+				"description":"This project is really great.",
+				"bundleUrl":"http://192.168.0.6:19001/App.bundle?platform=android&dev=true&minify=false&hot=false&assetPlugin=C%3A%5Cdev%5Cmobile%5C%5Bexample%5D%5CReact-Native-Ex-Navigatoin%5Cnode_modules%5Cexpo%5Ctools%5ChashAssetFiles",
+				"updates":
+				{
+					"fallbackToCacheTimeout":0
+				},
+				"ios":
+				{
+					"supportsTablet":true},
+					"packagerOpts":
+					{
+						"dev":true,
+						"lanType":"ip",
+						"hostType":"lan",
+						"minify":false,
+						"urlRandomness":"f6-na5"
+					},
+					"sdkVersion":"29.0.0",
+					"mainModuleName":"App",
+					"xde":true,
+					"id":"@hankkuu/react-navigation-final",
+					"debuggerHost":"192.168.0.6:19001",
+					"platforms":["ios","android"],
+					"env":
+					{
+
+					},
+					"icon":"./assets/icon.png",
+					"loadedFromCache":false,
+					"developer":
+					{
+						"tool":"xde",
+						"projectRoot":"C:\\dev\\mobile\\[example]\\React-Native-Ex-Navigatoin"
+					},
+					"name":"react-navigation-final"
+				},
+				"shell":false
+			}
+		},
+		"rootTag":11
+	}. __DEV__ === true, 
+development-level warning are ON, 
+performance optimizations are OFF
