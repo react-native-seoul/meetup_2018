@@ -1,0 +1,5 @@
+rootProject.name = 'DaumMapExample'
+include ':react-native-daummap'
+project(':react-native-daummap').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-daummap/android/app')
+
+include ':app'
